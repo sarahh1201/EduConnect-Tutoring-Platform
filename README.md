@@ -1,16 +1,65 @@
-# EduConnect
+# EduConnect – Tutoring Platform
 
-- [v0](/v0) - This version of EduConnect includes all the header files and algorithms that have been built separately.
-- [v1](/v1) - This version of EduConnect is bringing all the components together to make the platform cohesive. 
-    - Backend (header files)
-        - [AcceptRequest.h](v1/backend/AcceptRequesth) - The logic of a tutor accepting a request. 
-        - [Authorization.h](v1/backend/Authorization.h) - All the login logic, contains password recovery and changing. 
-        - [ClearScreen.h](v1/backend/ClearScreen.h) - This will just clear the contents in the terminal, making it easier to see. There are two versions of the function. One will verify with the user if they would like to clear the screen, and the other will clear with no warning. 
-        - [CreateAccount.h](v1/backend/CreateAccount.h) - New users can create a tutor or student account. 
-        - [Dashboards.h](v1/backend/Dashboards.h) - The menus for students or tutors. 
-        - [Decode.h](v1/backend/Decode.h) - This file will take the contents from the .csv files. In terms of scalability, this is not the best method, so for future improvements, implementing the platform with SQL would be ideal. 
-        - [MakeRequest.h](v1/backend/MakeRequest.h) - As a student, you can submit a new request. 
-        - [RequestProcess.h](v1/backend/RequestProcess.h) - This is the logic of the matching algorithm. This is more on the backend side. 
-        - [TutorSearch.h](v1/backend/TutorSearch.h) - This contains the various methods a student can search for a tutor and then contact them via email. 
-    - Data (csv files) - All the .csv files where information is being stored and retrieved. Since this is a school project and our datasets are quite small, this is feasible; however, if we wanted to scale this project, we would have to rework this project with a database. 
-- [v_ui](/v_ui) - This is the version of EduConnect that has a UI. While converting from v1 to v_ui there were some issues that we ran into. The main issue is that QT does not like everything to be in header files; that is only one of the problems. Most of the code in this implementation is not the same because QT does not use cout to print since we are not printing to a terminal. There are a lot more steps to print out to different ui components. Last thing to mention is that not all of the features of EduConnect have been implemented in this version, as it was time-consuming to go through and rewrite some of the code as well as make the ui for it. In the future, we would love to improve the ui design and make it more functional. 
+EduConnect is a C++ tutoring platform that connects students with tutors using a custom matching system based on subject, availability, and rating scores. The project demonstrates the use of data structures, algorithms, and system design concepts, with both a command-line backend version and a Qt-based graphical interface.
+
+---
+
+# Project Overview
+
+The project is divided into two main versions:
+
+## CLI Version (Core Backend System)
+
+The CLI version contains the full backend logic of the EduConnect platform, including user management, request handling, and tutor matching algorithms.
+
+### Features
+- User registration and authentication (student/tutor accounts)
+- Student request creation system
+- Tutor request acceptance workflow
+- Tutor search and filtering system
+- Matching algorithm based on subject, availability, and rating
+- CSV-based data storage system
+
+### Backend Modules
+- `AcceptRequest.h` – Tutor request acceptance logic  
+- `Authorization.h` – Login, authentication, and password management  
+- `CreateAccount.h` – Account creation system  
+- `Dashboards.h` – Student and tutor menu interfaces  
+- `MakeRequest.h` – Student request submission  
+- `RequestProcess.h` – Core matching algorithm  
+- `TutorSearch.h` – Tutor search and contact functionality  
+- `Decode.h` – CSV data parsing and loading  
+- `ClearScreen.h` – Terminal UI utility functions  
+
+---
+
+## Qt GUI Version (Graphical Interface)
+
+The Qt version builds on the CLI backend and provides a graphical user interface for interacting with the system.
+
+### Notes
+- Built using **Qt (C++ framework)**
+- Translates backend logic into UI-based interaction
+- Some features were not fully ported due to time constraints
+- Uses Qt signal/slot system for UI interaction
+
+---
+
+# How to Run the Project
+
+## Requirements
+Before running the project, ensure you have:
+
+- C++ compiler (GCC, MinGW, or MSVC)
+- Qt 5 or Qt 6 (ONLY required for GUI version)
+- Qt Creator (recommended for GUI version)
+
+---
+
+## Run CLI Version (No Qt Required)
+
+1. Navigate to the CLI version folder  
+2. Compile the project:
+
+```bash
+g++ main.cpp -o EduConnect
